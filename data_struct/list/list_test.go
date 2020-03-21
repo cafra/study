@@ -6,7 +6,7 @@ import (
 )
 
 func TestList_PushHead(t *testing.T) {
-	list := new(List).Init()
+	list := New()
 
 	for i := 0; i < 10; i++ {
 		list.PushHead(i)
@@ -15,7 +15,7 @@ func TestList_PushHead(t *testing.T) {
 	fmt.Println("===========")
 	list.Reverse().Print()
 
-	list.Init()
+	list = New()
 	for i := 0; i < 3; i++ {
 		list.PushHead(i)
 	}

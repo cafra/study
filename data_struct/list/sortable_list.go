@@ -23,13 +23,14 @@ type SortList struct {
 	len  int          // current list length excluding (this) sentinel element
 }
 
-func (l *SortList) Init() *SortList {
+func NewSortableList() ISortList {
+	l := new(SortList)
 	l.root = nil
 	l.len = 0
 	return l
 }
 
-func (l *SortList) PushHead(data ISort) *SortList {
+func (l *SortList) PushHead(data ISort) IList {
 	node := &SortElement{
 		Value: data,
 		list:  l,
@@ -52,7 +53,7 @@ func (l *SortList) Print() {
 		fmt.Println(i)
 	})
 }
-func (l *SortList) Reverse() *SortList {
+func (l *SortList) Reverse() ISortList {
 	if l.root == nil || l.root.next == nil {
 		return l
 	}
@@ -69,7 +70,7 @@ func (l *SortList) Reverse() *SortList {
 	return l
 }
 
-func (l1 *SortList) Merge(l2 *SortList) *SortList {
+func (l1 *SortList) Merge(l2 *SortList) ISortList {
 	return &SortList{
 		root: Merge(l1.root, l2.root),
 		len:  l1.len + l2.len,

@@ -4,7 +4,7 @@ import "fmt"
 
 type ISortList interface {
 	IList
-	Merge(ISortList) // 合并有序链表
+	Merge(ISortList) ISortList // 合并有序链表
 }
 
 type ISort interface {
@@ -30,9 +30,9 @@ func NewSortableList() ISortList {
 	return l
 }
 
-func (l *SortList) PushHead(data ISort) IList {
+func (l *SortList) PushHead(data interface{}) IList {
 	node := &SortElement{
-		Value: data,
+		Value: data.(ISort),
 		list:  l,
 		next:  l.root,
 	}
@@ -53,7 +53,7 @@ func (l *SortList) Print() {
 		fmt.Println(i)
 	})
 }
-func (l *SortList) Reverse() ISortList {
+func (l *SortList) Reverse() IList {
 	if l.root == nil || l.root.next == nil {
 		return l
 	}
@@ -70,10 +70,10 @@ func (l *SortList) Reverse() ISortList {
 	return l
 }
 
-func (l1 *SortList) Merge(l2 *SortList) ISortList {
+func (l1 *SortList) Merge(l2 ISortList) ISortList {
 	return &SortList{
-		root: Merge(l1.root, l2.root),
-		len:  l1.len + l2.len,
+		root: Merge(l1.root, l2.(*SortList).root),
+		len:  l1.len + l2.(*SortList).len,
 	}
 }
 

@@ -11,13 +11,13 @@ func (i MyData) Less(j ISort) bool {
 }
 
 func TestSortList_Merge(t *testing.T) {
-	l1 := new(SortList).Init()
+	l1 := NewSortableList()
 	for _, v := range []MyData{1, 3, 5} {
 		l1.PushHead(v)
 	}
 	l1.Reverse().Print()
 
-	l2 := new(SortList).Init()
+	l2 := NewSortableList()
 	for _, v := range []MyData{2, 4, 6} {
 		l2.PushHead(v)
 	}

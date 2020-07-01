@@ -41,47 +41,44 @@
 - 依赖注入方式
 
 
-## 具体实践方案
+## 测试依赖库
 
-|package|解决方法|备注|状态|
-|----------|------|-------
-|repository|数据库 sqlmock|模拟数据库|Y|
-|usecase|testify mock|模拟依赖，进行测试|Y|
-|deliver|testify http|模拟依赖，进行测试|Y|
+|name|作用|github 地址|补充|
+|----------|------|-------|----|
+|testify|测试框架 mock 库|https://github.com/stretchr/testify|10k star|
+|mockery|mock 生成器|https://github.com/vektra/mockery|使用方式 mockery --all --keeptree|
+|goconvey|测试框架 |github.com/smartystreets/goconvey/convey|ui 做的不错 6k star|
+|go-sqlmock|数据库mock|https://github.com/DATA-DOG/go-sqlmock||
+|faker|mock 结构数据|https://github.com/bxcodec/faker|Struct Data Fake Generator|
 
-## Go测试框架 testify 10k star
-
-- https://github.com/stretchr/testify
+## testify
 
 |子包|功能|测试案例|
+|----------|------|-------|
 |mock	|模拟实现|模拟依赖服务 mock case|
 |assert |断言测试案例|ok|
 |http	|http 测试||
 |require|断言||
 
-## interface mock 生成器生成接口对象
 
-- https://github.com/vektra/mockery
-- 使用方式 mockery --all --keeptree
+## goconvey
 
-## Go测试框架goconvey 6k star
-
-- github.com/smartystreets/goconvey/convey
-
-|packge|
+|packge|function|
 |-------|------|
 |convey| 测试单元|
 |so 	  |断言|
 
-## 数据库 mock 2.6k
+## 具体实践方案
 
-- https://github.com/DATA-DOG/go-sqlmock
+|package|解决方法|备注|状态|
+|----------|------|-------|----|
+|repository|数据库 sqlmock|模拟数据库|Y|
+|usecase|testify mock|模拟依赖，进行测试|Y|
+|deliver|testify http|模拟依赖，进行测试|Y|
 
-## Struct Data Fake Generator
+## 示例测试代码
 
-- https://github.com/bxcodec/faker
-
-
+- https://github.com/bxcodec/go-clean-arch
 
 参考文章：
 - sqlmock   https://blog.marvel6.cn/2020/01/test-and-mock-db-by-xorm-with-the-help-of-convey-and-sqlmock/

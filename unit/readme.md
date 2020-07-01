@@ -38,12 +38,12 @@
 |http	|http 测试||
 |require|断言||
 
-# interface mock 生成器生成接口对象
+## interface mock 生成器生成接口对象
 
 - https://github.com/vektra/mockery
 - 使用方式 mockery --all --keeptree
 
-# Go测试框架goconvey 6k star
+## Go测试框架goconvey 6k star
 
 - github.com/smartystreets/goconvey/convey
 
@@ -52,11 +52,13 @@
 |convey| 测试单元|
 |so 	  |断言|
 
-# 数据库 mock 2.6k
+## 数据库 mock 2.6k
 
 - https://github.com/DATA-DOG/go-sqlmock
 
+## Struct Data Fake Generator
 
+- https://github.com/bxcodec/faker
 
 
 参考文章：
